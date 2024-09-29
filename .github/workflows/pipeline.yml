@@ -98,7 +98,7 @@ jobs:
       run:  mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121:sonar \
         -Dsonar.qualitygate.wait=true \
         -Dsonar.projectKey=devopsimpacta_atividade \
-        -Dsonar.organization=DevopsImpacta \
+        -Dsonar.organization=devopsImpacta \
         -Dsonar.login=${{ secrets.DS_TOKEN }}
 
   build:
