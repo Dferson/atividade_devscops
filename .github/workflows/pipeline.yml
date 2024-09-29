@@ -59,7 +59,7 @@ jobs:
         echo "coverage = ${{ steps.jacoco.outputs.coverage }}"
         echo "branch coverage = ${{ steps.jacoco.outputs.branches }}"    
     - name: Upload JaCoCo coverage report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v2
       with:
         name: jacoco-report
         path: target/site/jacoco/
@@ -94,9 +94,8 @@ jobs:
     - name: Build and analyze
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKE }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_IMPACTA }}
       run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.qualitygate.wait=true -Dsonar.projectKey=dferson_atividade-devscops
-
 
   build:
     runs-on: ubuntu-latest
